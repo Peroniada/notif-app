@@ -5,7 +5,7 @@ import edu.sperek.jwtpushnotif.domain.repository.UserRepository;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class InMemoryUserRepository implements UserRepository {
+public class MockUserRepository implements UserRepository {
 
   private final static Collection<User> users = new HashSet<>();
 

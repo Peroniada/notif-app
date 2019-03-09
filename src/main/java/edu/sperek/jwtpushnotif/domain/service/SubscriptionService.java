@@ -1,8 +1,11 @@
 package edu.sperek.jwtpushnotif.domain.service;
 
-public interface SubscriptionService {
-  void subscribeMail(String mail);
-  void subscribePush(String token);
+import java.util.Collection;
 
+public interface SubscriptionService<Type> {
+  void subscribe(Type recipient);
 
+  void unsubscribe(Type recipient);
+
+  Collection<Type> getSubscribers();
 }
