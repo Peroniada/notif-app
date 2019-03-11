@@ -1,40 +1,39 @@
-package edu.sperek.jwtpushnotif.application;
+package edu.sperek.jwtpushnotif.domain.notifier;
 
 import edu.sperek.jwtpushnotif.HeaderRequestInterceptor;
-import edu.sperek.jwtpushnotif.domain.service.NotificationService;
+import edu.sperek.jwtpushnotif.domain.model.Message;
+import edu.sperek.jwtpushnotif.domain.model.subscription.PushRecipient;
+import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
-public class AndroidPushNotificationsService implements NotificationService {
+public class PushNotifier extends NotifierDecorator {
 
   @Value("${service.firebase.key}")
   private String firebaseKey;
+
   @Value("${service.firebase.url}")
   private String firebaseApiUrl;
 
+  private SubscriptionRepository<PushRecipient> repository;
+
+  public PushNotifier(Notifier tempNotifier) {
+    super(tempNotifier);
+  }
+
   @Override
-  @Async
-  public CompletableFuture<?> send(HttpEntity<String> message) {
+  public void send(Message notification) {
     RestTemplate restTemplate = new RestTemplate();
     List<ClientHttpRequestInterceptor> interceptors = new ArrayList<>();
     interceptors.add(new HeaderRequestInterceptor("Authorization", "key=" + firebaseKey));
     interceptors.add(new HeaderRequestInterceptor("Content-Type", "application.json"));
     restTemplate.setInterceptors(interceptors);
 
-    String firebaseResponse = restTemplate.postForObject(firebaseApiUrl, message, String.class);
-
-    return CompletableFuture.completedFuture(firebaseResponse);
-  }
-
-  public String getFirebaseKey() {
-    return firebaseKey;
+    //TODO Build Create valid notification request to work with firebase api
+    restTemplate.postForObject(firebaseApiUrl, notification, String.class);
+    super.send(notification);
   }
 }
