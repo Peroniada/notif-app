@@ -1,10 +1,9 @@
 package edu.sperek.jwtpushnotif.domain.service;
 
-import java.util.concurrent.CompletableFuture;
-import org.springframework.http.HttpEntity;
+import edu.sperek.jwtpushnotif.domain.model.Message;
+
 
 public interface NotificationService {
-
-  CompletableFuture<?> send(HttpEntity<String> message);
+  void send(Message message);
 
 }

@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public abstract class Recipient {
 
-  public final String pointer;
+  public final String recipientId;
 
-  public Recipient(String pointer) {
-    this.pointer = pointer;
+  public Recipient(String recipientId) {
+    this.recipientId = recipientId;
   }
 
   @Override
@@ -19,11 +19,11 @@ public abstract class Recipient {
       return false;
     }
     Recipient recipient = (Recipient) o;
-    return pointer.equals(recipient.pointer);
+    return recipientId.equals(recipient.recipientId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pointer);
+    return Objects.hash(recipientId);
   }
 }

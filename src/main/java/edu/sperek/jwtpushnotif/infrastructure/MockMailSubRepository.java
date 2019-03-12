@@ -9,14 +9,18 @@ public class MockMailSubRepository implements SubscriptionRepository<MailRecipie
 
   private final static Collection<MailRecipient> recipients = new HashSet<>();
 
+  public MockMailSubRepository() {
+    recipients.add(new MailRecipient("sebastianperek@gmail.com"));
+  }
+
   @Override
   public void save(MailRecipient recipient) {
-
+    recipients.add(recipient);
   }
 
   @Override
   public Collection<MailRecipient> findAll() {
-    return null;
+    return recipients;
   }
 
   @Override

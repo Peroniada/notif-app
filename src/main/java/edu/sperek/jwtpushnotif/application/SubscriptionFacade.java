@@ -1,5 +1,7 @@
 package edu.sperek.jwtpushnotif.application;
 
+import edu.sperek.jwtpushnotif.application.subscription.MailSubscriptionService;
+import edu.sperek.jwtpushnotif.application.subscription.PushSubscriptionService;
 import edu.sperek.jwtpushnotif.domain.model.subscription.MailRecipient;
 import edu.sperek.jwtpushnotif.domain.model.subscription.PushRecipient;
 import java.util.Collection;

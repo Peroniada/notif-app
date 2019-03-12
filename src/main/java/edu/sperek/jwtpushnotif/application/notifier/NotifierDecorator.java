@@ -1,4 +1,4 @@
-package edu.sperek.jwtpushnotif.domain.notifier;
+package edu.sperek.jwtpushnotif.application.notifier;
 
 import edu.sperek.jwtpushnotif.domain.model.Message;
 
