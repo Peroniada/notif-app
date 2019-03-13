@@ -35,7 +35,6 @@ public class MailNotifier extends NotifierDecorator {
 
   private void sendMessage(Message notification, Collection<? extends Recipient> subscribers) {
     System.out.println("Sending Mail");
-    System.out.println(mail);
     sender.send(notification, subscribers);
   }
 }

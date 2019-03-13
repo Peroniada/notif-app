@@ -1,4 +1,4 @@
-package edu.sperek.jwtpushnotif.infrastructure;
+package edu.sperek.jwtpushnotif.infrastructure.recipient;
 
 import edu.sperek.jwtpushnotif.domain.model.Message;
 import edu.sperek.jwtpushnotif.domain.model.subscription.Recipient;
@@ -27,6 +27,8 @@ public class EmailSender implements Sender {
         subscribers.stream().map(subscriber -> subscriber.recipientId).toArray(String[]::new));
     message.setText(notification.getMessage());
     message.setSubject(notification.getSubject());
-    javaMailSender.send(message);
+    long start = System.currentTimeMillis();
+//    javaMailSender.send(message);
+    System.out.println("sending mail took : " + (System.currentTimeMillis()-start));
   }
 }

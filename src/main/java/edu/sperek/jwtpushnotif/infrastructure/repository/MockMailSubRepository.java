@@ -1,4 +1,4 @@
-package edu.sperek.jwtpushnotif.infrastructure;
+package edu.sperek.jwtpushnotif.infrastructure.repository;
 
 import edu.sperek.jwtpushnotif.domain.model.subscription.MailRecipient;
 import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
@@ -11,6 +11,8 @@ public class MockMailSubRepository implements SubscriptionRepository<MailRecipie
 
   public MockMailSubRepository() {
     recipients.add(new MailRecipient("sebastianperek@gmail.com"));
+    recipients.add(new MailRecipient("blodoc17@gmail.com"));
+    recipients.add(new MailRecipient("karolbiczuk@gmail.com"));
   }
 
   @Override

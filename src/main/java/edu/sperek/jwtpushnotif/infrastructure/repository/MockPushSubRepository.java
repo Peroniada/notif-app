@@ -1,4 +1,4 @@
-package edu.sperek.jwtpushnotif.infrastructure;
+package edu.sperek.jwtpushnotif.infrastructure.repository;
 
 import edu.sperek.jwtpushnotif.domain.model.subscription.PushRecipient;
 import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
