@@ -2,20 +2,24 @@ package edu.sperek.jwtpushnotif.infrastructure.repository;
 
 import edu.sperek.jwtpushnotif.domain.model.User;
 import edu.sperek.jwtpushnotif.domain.repository.UserRepository;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 public class MockUserRepository implements UserRepository {
 
-  private final static Collection<User> users = new HashSet<>();
+  private static final List<User> users = new ArrayList<>();
 
   @Override
-  public void save(User user) {
+  public User save(User user) {
     users.add(user);
+    return user;
   }
 
   @Override
-  public Collection<User> findAll() {
+  public List<User> findAll() {
     return users;
   }
 }
