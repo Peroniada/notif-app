@@ -1,9 +1,9 @@
 package edu.sperek.jwtpushnotif.domain.repository;
 
-import edu.sperek.jwtpushnotif.domain.model.User;
-import java.util.Collection;
+import java.util.List;
 
-public interface UserRepository {
-  void save(User user);
-  Collection<User> findAll();
+public interface UserRepository<T> {
+  <S extends T> S save(S user);
+
+  <S extends T> List<S> findAll();
 }

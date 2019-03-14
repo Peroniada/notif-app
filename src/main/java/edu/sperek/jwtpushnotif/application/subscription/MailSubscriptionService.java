@@ -5,6 +5,7 @@ import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
 import edu.sperek.jwtpushnotif.domain.service.SubscriptionService;
 import java.util.Collection;
 
+//TODO Create Subscription controller for adding mail subscribers
 public class MailSubscriptionService implements SubscriptionService<MailRecipient> {
 
   private SubscriptionRepository<MailRecipient> repository;
