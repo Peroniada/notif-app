@@ -8,7 +8,10 @@ import java.util.Objects;
 public abstract class Recipient {
 
   @Column(name = "recipient_address")
-  public final String recipientAddress;
+  public String recipientAddress;
+
+  public Recipient() {
+  }
 
   public Recipient(String recipientAddress) {
     this.recipientAddress = recipientAddress;

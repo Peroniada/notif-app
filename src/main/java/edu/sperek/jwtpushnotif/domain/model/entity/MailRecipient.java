@@ -15,9 +15,19 @@ public class MailRecipient extends Recipient {
   @Column(name = "id")
   private Long id;
 
-  public MailRecipient(String recipientAddress, Long id) {
+  public MailRecipient() {
+  }
+
+  public MailRecipient(String recipientAddress) {
     super(recipientAddress);
+  }
+
+  public void setId(Long id) {
     this.id = id;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   @Override

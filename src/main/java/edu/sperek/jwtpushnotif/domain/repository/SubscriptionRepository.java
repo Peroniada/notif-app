@@ -10,4 +10,6 @@ public interface SubscriptionRepository<Type> {
   Collection<Type> findAll();
 
   void delete(Type recipient);
+
+  Type findByRecipientAddress(String address);
 }

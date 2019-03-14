@@ -28,7 +28,7 @@ public class EmailSender implements Sender {
     message.setText(notification.getMessage());
     message.setSubject(notification.getSubject());
     long start = System.currentTimeMillis();
-    //    javaMailSender.send(message);
+        javaMailSender.send(message);
     System.out.println("sending mail took : " + (System.currentTimeMillis() - start));
   }
 }

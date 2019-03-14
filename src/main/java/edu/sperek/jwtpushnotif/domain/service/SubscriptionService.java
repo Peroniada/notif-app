@@ -8,4 +8,6 @@ public interface SubscriptionService<Type> {
   void unsubscribe(Type recipient);
 
   Collection<Type> getSubscribers();
+
+  Type findByRecipientAddress(String address);
 }
