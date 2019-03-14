@@ -1,8 +1,9 @@
 package edu.sperek.jwtpushnotif.application;
 
-import edu.sperek.jwtpushnotif.domain.model.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.User;
 import edu.sperek.jwtpushnotif.domain.repository.UserRepository;
 import edu.sperek.jwtpushnotif.domain.service.UserService;
+
 import java.util.Collection;
 
 public class UserServiceImpl implements UserService {

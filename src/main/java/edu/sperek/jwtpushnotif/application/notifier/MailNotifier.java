@@ -1,13 +1,14 @@
 package edu.sperek.jwtpushnotif.application.notifier;
 
 import edu.sperek.jwtpushnotif.domain.model.Message;
-import edu.sperek.jwtpushnotif.domain.model.subscription.MailRecipient;
-import edu.sperek.jwtpushnotif.domain.model.subscription.Recipient;
+import edu.sperek.jwtpushnotif.domain.model.entity.MailRecipient;
+import edu.sperek.jwtpushnotif.domain.model.entity.Recipient;
 import edu.sperek.jwtpushnotif.domain.repository.Sender;
 import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
-import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+
+import java.util.Collection;
 
 public class MailNotifier extends NotifierDecorator {
 
@@ -19,8 +20,8 @@ public class MailNotifier extends NotifierDecorator {
   private String mail;
 
   @Autowired
-  public MailNotifier(Notifier tempNotifier,
-      SubscriptionRepository<MailRecipient> repository, Sender sender) {
+  public MailNotifier(
+      Notifier tempNotifier, SubscriptionRepository<MailRecipient> repository, Sender sender) {
     super(tempNotifier);
     this.repository = repository;
     this.sender = sender;

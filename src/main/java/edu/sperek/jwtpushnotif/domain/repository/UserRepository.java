@@ -1,6 +1,6 @@
 package edu.sperek.jwtpushnotif.domain.repository;
 
-import edu.sperek.jwtpushnotif.domain.model.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.User;
 
 import java.util.List;
 

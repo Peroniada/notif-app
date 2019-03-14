@@ -1,11 +1,9 @@
 package edu.sperek.jwtpushnotif.infrastructure.repository;
 
-import edu.sperek.jwtpushnotif.domain.model.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.User;
 import edu.sperek.jwtpushnotif.domain.repository.UserRepository;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 public class MockUserRepository implements UserRepository {

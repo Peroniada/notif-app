@@ -1,11 +1,12 @@
 package edu.sperek.jwtpushnotif.application.subscription;
 
-import edu.sperek.jwtpushnotif.domain.model.subscription.MailRecipient;
+import edu.sperek.jwtpushnotif.domain.model.entity.MailRecipient;
 import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
 import edu.sperek.jwtpushnotif.domain.service.SubscriptionService;
+
 import java.util.Collection;
 
-//TODO Create Subscription controller for adding mail subscribers
+// TODO Create Subscription controller for adding mail subscribers
 public class MailSubscriptionService implements SubscriptionService<MailRecipient> {
 
   private SubscriptionRepository<MailRecipient> repository;
@@ -21,7 +22,7 @@ public class MailSubscriptionService implements SubscriptionService<MailRecipien
 
   @Override
   public void unsubscribe(MailRecipient recipient) {
-    this.repository.remove(recipient);
+    this.repository.delete(recipient);
   }
 
   @Override

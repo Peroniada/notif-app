@@ -1,40 +1,42 @@
-package edu.sperek.jwtpushnotif.domain.model;
+package edu.sperek.jwtpushnotif.domain.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "PUBLIC")
 public class User {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="id")
-  private Long userId;
-  
+  @GeneratedValue
+  @Column(name = "id")
+  private Long id;
+
+  @Column(name = "password")
   private String password;
 
+  @Column(name = "mail")
   private String mail;
-  
+
+  @Column(name = "has_keys")
   private boolean hasKeys;
 
   public User() {}
 
-  public User(Long userId, String mail) {
-    this.userId = userId;
+  public User(Long id, String mail) {
+    this.id = id;
     this.mail = mail;
   }
 
-  public Long getUserId() {
-    return userId;
+  public Long getId() {
+    return id;
   }
 
-  public void setUserId(Long userId) {
-    this.userId = userId;
+  public void setId(Long id) {
+    this.id = id;
   }
 
   public String getPassword() {
@@ -63,6 +65,6 @@ public class User {
 
   @Override
   public String toString() {
-    return "User{" + "userId=" + userId + ", mail='" + mail + '\'' + '}';
+    return "User{" + "id=" + id + ", mail='" + mail + '\'' + '}';
   }
 }

@@ -4,7 +4,7 @@ import edu.sperek.jwtpushnotif.application.NotificationServiceImpl;
 import edu.sperek.jwtpushnotif.application.notifier.BaseNotifier;
 import edu.sperek.jwtpushnotif.application.notifier.MailNotifier;
 import edu.sperek.jwtpushnotif.application.notifier.PushNotifier;
-import edu.sperek.jwtpushnotif.domain.model.subscription.MailRecipient;
+import edu.sperek.jwtpushnotif.domain.model.entity.MailRecipient;
 import edu.sperek.jwtpushnotif.domain.repository.Sender;
 import edu.sperek.jwtpushnotif.domain.repository.SubscriptionRepository;
 import edu.sperek.jwtpushnotif.domain.service.NotificationService;
@@ -33,12 +33,12 @@ public class NotifierServiceConfiguration {
   @Bean
   public NotificationService notificationService() {
     return new NotificationServiceImpl(
-        new MailNotifier(new PushNotifier(new BaseNotifier(), firebaseProperties), mailRepository, mailSender));
+        new MailNotifier(
+            new PushNotifier(new BaseNotifier(), firebaseProperties), mailRepository, mailSender));
   }
 
   @Bean
   public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
     return new PropertySourcesPlaceholderConfigurer();
   }
-
 }
