@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user", schema = "PUBLIC")
-public class User {
+public class AppUser {
 
   @Id
   @GeneratedValue
@@ -24,9 +24,9 @@ public class User {
   @Column(name = "has_keys")
   private boolean hasKeys;
 
-  public User() {}
+  public AppUser() {}
 
-  public User(Long id, String mail) {
+  public AppUser(Long id, String mail) {
     this.id = id;
     this.mail = mail;
   }
@@ -65,6 +65,6 @@ public class User {
 
   @Override
   public String toString() {
-    return "User{" + "id=" + id + ", mail='" + mail + '\'' + '}';
+    return "AppUser{" + "id=" + id + ", mail='" + mail + '\'' + '}';
   }
 }

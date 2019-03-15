@@ -1,12 +1,14 @@
 package edu.sperek.jwtpushnotif.domain.repository;
 
-import edu.sperek.jwtpushnotif.domain.model.entity.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.AppUser;
 
 import java.util.List;
 
 public interface UserRepository {
 
-  User save(User user);
+  AppUser save(AppUser appUser);
 
-  List<User> findAll();
+  List<AppUser> findAll();
+
+  AppUser findByMail(String mail);
 }

@@ -1,12 +1,14 @@
 package edu.sperek.jwtpushnotif.domain.service;
 
-import edu.sperek.jwtpushnotif.domain.model.entity.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.AppUser;
 
 import java.util.Collection;
 
 public interface UserService {
 
-  void createUser(User user);
+  void login(AppUser appUser);
+  void singUp(AppUser appUser);
+  void createUser(AppUser appUser);
 
-  Collection<User> getUsers();
+  Collection<AppUser> getUsers();
 }

@@ -1,6 +1,6 @@
 package edu.sperek.jwtpushnotif.controller;
 
-import edu.sperek.jwtpushnotif.domain.model.entity.User;
+import edu.sperek.jwtpushnotif.domain.model.entity.AppUser;
 import edu.sperek.jwtpushnotif.domain.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,15 +20,22 @@ public class UserController {
   }
 
   @PostMapping("/addUser")
-  ResponseEntity<String> addUser(@RequestBody User user) {
-    userService.createUser(user);
+  ResponseEntity<String> addUser(@RequestBody AppUser appUser) {
+    userService.createUser(appUser);
 
-    return ResponseEntity.ok("Added user " + user.getMail());
+    return ResponseEntity.ok("Added appUser " + appUser.getMail());
   }
 
   @GetMapping("/")
-  ResponseEntity<Collection<User>> getUsers() {
+  ResponseEntity<Collection<AppUser>> getUsers() {
 
     return ResponseEntity.ok(userService.getUsers());
+  }
+
+  @PostMapping("/sign-up")
+  ResponseEntity<String> signpUp(@RequestBody AppUser appUser){
+    userService.singUp(appUser);
+
+    return ResponseEntity.ok("User sign up " + appUser.getMail());
   }
 }

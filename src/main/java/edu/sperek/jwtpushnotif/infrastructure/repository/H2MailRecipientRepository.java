@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 public interface H2MailRecipientRepository
     extends JpaRepository<MailRecipient, Long>, SubscriptionRepository<MailRecipient> {
 
-  MailRecipient findByRecipientAddress(String recipientAddress);
 }
